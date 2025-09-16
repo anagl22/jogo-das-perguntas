@@ -1,0 +1,85 @@
+/* Salve como: styles.css (arquivo atualizado) */
+:root{
+  --bg: #fff0f6;
+  --card: #ffd9ee;
+  --accent: #ff4da6;
+  --accent-2: #ff85c1;
+  --muted: #6b3b58;
+  --good: #2ecc71;
+  --bad: #ff6b6b;
+  --glass: rgba(255,255,255,0.5);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;display:flex;align-items:center;justify-content:center;
+  background: linear-gradient(180deg,var(--bg),#ffe7f4 60%);
+  color:var(--muted);
+  -webkit-font-smoothing:antialiased;
+  padding:20px;
+}
+.wrap{width:100%;max-width:980px}
+header{display:flex;align-items:center;gap:16px;margin-bottom:12px}
+.logo{width:58px;height:58px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 8px 24px rgba(255,77,166,0.18);display:grid;place-items:center;color:white;font-weight:800;font-size:20px}
+h1{margin:0;font-size:20px}
+.lead{margin:0;color:#6b3b58}
+
+.card{background:linear-gradient(180deg,var(--card),white);border-radius:14px;padding:18px;box-shadow:0 10px 30px rgba(122,65,90,0.08);}
+
+/* layout */
+.start{display:grid;grid-template-columns:1fr 320px;gap:18px}
+.intro{padding:12px}
+.controls{padding:12px;border-radius:12px;background:var(--glass);backdrop-filter:blur(6px)}
+.controls label{display:block;font-size:13px;margin-bottom:8px;color:#502f3f}
+.controls input[type=number], #playerName{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);margin-bottom:10px}
+.row{display:flex;gap:8px;align-items:center}
+.btn{display:inline-block;background:var(--accent);border:none;color:white;padding:10px 14px;border-radius:12px;font-weight:700;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent);border:2px dashed rgba(255,77,166,0.18)}
+.small{font-size:13px;color:#5b3748}
+.chk{font-size:13px;color:#5b3748;display:flex;align-items:center;gap:8px}
+
+/* quiz */
+.quiz{display:none;margin-top:14px}
+.meta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.left{display:flex;flex-direction:column;gap:6px}
+progress{width:45%;height:12px;border-radius:999px;overflow:hidden}
+.timerWrap{width:200px;text-align:right}
+.timerBar{height:6px;background:rgba(0,0,0,0.06);border-radius:999px;overflow:hidden;margin-top:6px}
+.timerBar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:0%}
+
+.question{font-size:18px;margin-bottom:12px}
+.choices{display:grid;gap:10px}
+.choice{background:white;border-radius:12px;padding:12px;border:1px solid rgba(0,0,0,0.06);cursor:pointer;transition:transform .12s ease, box-shadow .12s ease;text-align:left;display:flex;gap:10px;align-items:center}
+.choice strong{width:36px;display:inline-block;background:linear-gradient(180deg,#fff,#fff);color:var(--accent);font-weight:800;border-radius:8px;padding:6px;text-align:center}
+.choice:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(122,65,90,0.06)}
+.choice.correct{border-color:var(--good);background:linear-gradient(90deg,#f0fff5,#e6fff0)}
+.choice.wrong{border-color:var(--bad);background:linear-gradient(90deg,#fff5f5,#ffecec)}
+.choice.disabled{opacity:0.45;pointer-events:none}
+
+.footer{display:flex;align-items:center;justify-content:space-between;margin-top:14px}
+
+/* result */
+.result{display:none;text-align:center;padding:12px}
+.scoreLarge{font-size:46px;font-weight:800;color:var(--accent)}
+.sub{margin-top:8px}
+.saveRow{display:flex;gap:8px;align-items:center;justify-content:center;margin-top:12px}
+.review{margin-top:8px;text-align:left;max-height:220px;overflow:auto;border-radius:8px;padding:8px;background:rgba(255,255,255,0.6)}
+.revwItem{padding:8px;border-radius:8px;margin-bottom:8px;border:1px solid rgba(0,0,0,0.04)}
+.revwCorrect{color:var(--good);font-weight:700}
+.revwWrong{color:var(--bad);font-weight:700}
+
+.highscores{margin-top:12px;text-align:left}
+table{width:100%;border-collapse:collapse;margin-top:8px}
+td,th{padding:8px;border-bottom:1px solid rgba(0,0,0,0.04);font-size:13px}
+
+/* helper */
+.sr-only{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.formulaNote{margin-top:10px;background:rgba(255,255,255,0.6);padding:8px;border-radius:8px;font-size:13px}
+@media (max-width:840px){
+  .start{grid-template-columns:1fr}
+  .logo{width:52px;height:52px}
+  progress{width:36%}
+  .timerWrap{width:120px}
+}
